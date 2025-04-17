@@ -10,14 +10,14 @@ echo "Analyze a set of numbers to get max, min, sum, and average.\n\n";
 
 // Infinite loop to keep the program running until the user types 'exit'
 while (true) {
-    
+
     echo "Enter a list of numbers separated by spaces (or type 'exit' to quit): ";
     $input = trim(fgets(STDIN)); // Read input from the console
 
     // Check if the user wants to exit the program
     if (strtolower($input) === 'exit') {
         echo "👋 Thank you for using Number Analyzer. Goodbye!\n";
-        break; 
+        break;
     }
 
     // Split the input string into an array using spaces
@@ -26,23 +26,22 @@ while (true) {
     // Initialize an empty array to store valid numbers
     $numbers = [];
 
-    
+
     $isValid = true;
 
     // Validate each item in the input array
     foreach ($inputArray as $value) {
         if (is_numeric($value)) {
-            $numbers[] = floatval($value); // Convert to float and store
+            $numbers[] = floatval($value);
         } else {
-            $isValid = false; // Found a non-numeric value
+            $isValid = false;
             break;
         }
     }
 
-    // If the input was invalid, display error and prompt again
     if (!$isValid) {
         echo "❌ Error: Please enter only numbers separated by spaces.\n\n";
-        continue; // Skip to next iteration
+        continue;
     }
 
     // Perform calculations
